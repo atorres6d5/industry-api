@@ -2,7 +2,11 @@ const request = require('supertest')
 const expect = require('chai').expect
 const app = require('../server.js')
 
+<<<<<<< HEAD
 ///// refer to supertest docs and chai docs
+=======
+///// refer to supertest docs and chai docsa
+>>>>>>> work-stations
 
 
 function reSeed(){
