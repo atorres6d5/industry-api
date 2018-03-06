@@ -6,6 +6,8 @@ exports.up = function(knex, Promise) {
     talbe.integer('station_id').defaultTo(null)
     table.integer('department_id').notNullable()
     table.integer('sequence').notNullable()
+    table.boolean('active').defaultTo(false)
+    table.boolean('completed').defaultTo(false)
   })
 };
 
