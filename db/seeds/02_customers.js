@@ -1,10 +1,10 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('customers').del()
     .then(function () {
       // Inserts seed entries
-      return knex('table_name').insert([
+      return knex('customers').insert([
         {
           id: 1,
           name: 'ACME',
@@ -21,7 +21,7 @@ exports.seed = function(knex, Promise) {
           location:'some place, in some building',
           phone:'111-111-1111',
           ITAR:false,
-          person_of_contact:"Puckett"
+          person_of_contact:"Puckett",
           delivery_location:"in the thing on the thing"
         },{
           id: 3,
@@ -30,13 +30,13 @@ exports.seed = function(knex, Promise) {
           location: "mom's basement",
           phone:'222-222-2222',
           ITAR:false,
-          person_of_contact:'Rew'
+          person_of_contact:'Rew',
           delivery_location: "back door of moms house"
         },{
           id:4,
           name:'Big Box',
           customer_type:"the kind that sells stuff",
-          location:"in the wheel in the sky"
+          location:"in the wheel in the sky",
           phone:"888-888-8888",
           ITAR: false,
           person_of_contact:'Jack',
@@ -46,9 +46,10 @@ exports.seed = function(knex, Promise) {
           name: "Kwik-E-Mart",
           customer_type: "store front",
           location: "Springfield",
-          phone:"777-777-7777"
+          phone:"777-777-7777",
           ITAR:true,
-          person_of_contact:"Apu"
+          person_of_contact:"Apu",
+          delivery_location:" at the market"
         },{
           id:6,
           name: 'Batman',
@@ -59,6 +60,9 @@ exports.seed = function(knex, Promise) {
           person_of_contact:"Alfred",
           delivery_location:"Wayne Manor"
         }
-      ]);
+      ])
+      .then(() => {
+        return knex.raw(`SELECT setval('customers_id_seq', (SELECT MAX(id) FROM customers));`);
+      })
     });
 };

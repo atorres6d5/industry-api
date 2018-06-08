@@ -5,7 +5,7 @@ moment = require('moment')
 class workerModel {
 
   static getAllProjects(){
-    return db.select().table('projects')
+    return db.select().table('projects').innerJoin('customers', 'projects.customer_id', 'customers.id')
   }
 
   static getProjectData(id){

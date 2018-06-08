@@ -3,7 +3,6 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('projects', table=>{
     table.increments()
     table.integer('parent_project_id').defaultTo(null)
-    table.string('customer').notNullable()
     table.integer('customer_id').notNullable()
     table.date('due_date').notNullable()
     table.integer('Part_count').notNullable().defaultTo(10)
