@@ -1,6 +1,6 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema.crearteTable('departments', table=>{
+  return knex.schema.createTable('departments', table=>{
     table.increments()
     table.string('name')
     table.integer('Employee_id_1st_shift_lead').defaultTo(null)
@@ -9,5 +9,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-
+  return knex.schema.dropTable('departments')
 };

@@ -1,10 +1,10 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema.crearteTable('customers', table=>{
+  return knex.schema.createTable('customers', table=>{
     table.increments()
     table.string('name')
-    talbe.string('customer_type')
-    talbe.string('Location')
+    table.string('customer_type')
+    table.string('location')
     table.string('phone')
     table.boolean('ITAR').defaultTo(false)
     table.string('person_of_contact').notNullable()
